@@ -90,4 +90,3 @@ public class RemarkCommand extends Command {
                 && remark.equals(e.remark);
     }
 }
-
