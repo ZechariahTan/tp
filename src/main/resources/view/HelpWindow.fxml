@@ -21,13 +21,13 @@
   </icons>
   <scene>
     <Scene>
-         <HBox alignment="CENTER" prefHeight="538.0" prefWidth="737.0">
+         <HBox alignment="CENTER" prefHeight="340.0" prefWidth="737.0">
             <children>
-               <SplitPane dividerPositions="0.9213051823416507" orientation="VERTICAL" prefHeight="350.0" prefWidth="722.0">
+               <SplitPane dividerPositions="0.87" orientation="VERTICAL" prefHeight="350.0" prefWidth="722.0">
                  <items>
                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                         <children>
-                           <TableView prefHeight="476.0" prefWidth="725.0">
+                           <TableView prefHeight="278.0" prefWidth="725.0">
                              <columns>
                                <TableColumn prefWidth="114.0" text="Action">
                                  <cellValueFactory><PropertyValueFactory property="action" />
