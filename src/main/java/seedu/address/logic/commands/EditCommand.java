@@ -75,7 +75,7 @@ public class EditCommand extends Command {
         List<Passenger> lastShownList = model.getFilteredPassengerList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_PASSENGER_DISPLAYED_INDEX);
+            throw new CommandException(Messages.MESSAGE_INVALID_SINGLE_PASSENGER_DISPLAYED_INDEX);
         }
 
         Passenger passengerToEdit = lastShownList.get(index.getZeroBased());

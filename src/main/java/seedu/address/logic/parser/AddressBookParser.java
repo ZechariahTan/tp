@@ -19,6 +19,7 @@ import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.ListPoolCommand;
 import seedu.address.logic.commands.PoolCommand;
 import seedu.address.logic.commands.UnpoolCommand;
+import seedu.address.logic.parser.exceptions.IndexOutOfIntegerBoundsException;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -38,7 +39,7 @@ public class AddressBookParser {
      * @return the command based on the user input
      * @throws ParseException if the user input does not conform the expected format
      */
-    public Command parseCommand(String userInput) throws ParseException {
+    public Command parseCommand(String userInput) throws ParseException, IndexOutOfIntegerBoundsException {
         final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
         if (!matcher.matches()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));

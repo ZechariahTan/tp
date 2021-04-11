@@ -53,7 +53,7 @@ public class DeleteCommand extends Command {
 
         for (Index targetIndex : targetIndexes) {
             if (targetIndex.getZeroBased() >= lastShownList.size()) {
-                throw new CommandException(Messages.MESSAGE_INVALID_PASSENGER_DISPLAYED_INDEX);
+                throw new CommandException(Messages.MESSAGE_INVALID_MULTIPLE_PASSENGER_DISPLAYED_INDEX);
             }
 
             Passenger passengerToDelete = lastShownList.get(targetIndex.getZeroBased());

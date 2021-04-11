@@ -1,7 +1,10 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.core.Messages.MESSAGE_INDEX_OUT_OF_INTEGER_BOUNDS;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_SINGLE_PASSENGER_DISPLAYED_INDEX;
 
+import java.math.BigInteger;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -14,6 +17,7 @@ import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
+import seedu.address.logic.parser.exceptions.IndexOutOfIntegerBoundsException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.TripDay;
 import seedu.address.model.TripTime;
@@ -41,9 +45,12 @@ public class ParserUtil {
      * trimmed.
      * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
      */
-    public static Index parseIndex(String oneBasedIndex) throws ParseException {
+    public static Index parseIndex(String oneBasedIndex) throws ParseException, IndexOutOfIntegerBoundsException {
         String trimmedIndex = oneBasedIndex.trim();
         if (!StringUtil.isNonZeroUnsignedInteger(trimmedIndex)) {
+            if (StringUtil.isOutsideIntegerLimits(trimmedIndex)) {
+                throw new IndexOutOfIntegerBoundsException(MESSAGE_INDEX_OUT_OF_INTEGER_BOUNDS);
+            }
             throw new ParseException(MESSAGE_INVALID_INDEX);
         }
         return Index.fromOneBased(Integer.parseInt(trimmedIndex));
@@ -178,7 +185,7 @@ public class ParserUtil {
     /**
      * Parses {@code Collection<String> indices} into a {@code Set<Index>}.
      */
-    public static Set<Index> parseIndices(Collection<String> indices) throws ParseException {
+    public static Set<Index> parseIndices(Collection<String> indices) throws ParseException, IndexOutOfIntegerBoundsException {
         requireNonNull(indices);
         final Set<Index> indicesSet = new HashSet<>();
         for (String index : indices) {
@@ -192,7 +199,7 @@ public class ParserUtil {
      * Leading and trailing whitespaces will be trimmed.
      * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
      */
-    public static List<Index> parseDeleteIndex(String oneBasedIndexes) throws ParseException {
+    public static List<Index> parseDeleteIndex(String oneBasedIndexes) throws ParseException, IndexOutOfIntegerBoundsException {
         String[] arguments = oneBasedIndexes.split("\\s+");
         List<Index> indexes = new ArrayList<>();
 

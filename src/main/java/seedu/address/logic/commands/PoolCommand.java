@@ -93,7 +93,7 @@ public class PoolCommand extends Command {
 
         for (Index idx : indexes) {
             if (idx.getZeroBased() >= lastShownList.size()) {
-                throw new CommandException(Messages.MESSAGE_INVALID_PASSENGER_DISPLAYED_INDEX);
+                throw new CommandException(Messages.MESSAGE_INVALID_MULTIPLE_PASSENGER_DISPLAYED_INDEX);
             }
             Passenger passenger = lastShownList.get(idx.getZeroBased());
             assert passenger != null : "passenger should not be null";

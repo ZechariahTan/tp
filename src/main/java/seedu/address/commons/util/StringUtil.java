@@ -5,6 +5,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.math.BigInteger;
 import java.util.Arrays;
 
 /**
@@ -65,6 +66,23 @@ public class StringUtil {
         try {
             int value = Integer.parseInt(s);
             return value > 0 && !s.startsWith("+"); // "+1" is successfully parsed by Integer#parseInt(String)
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
+
+    /**
+     * Returns true if {@code s} is an integer less than Integer.MIN_VALUE or more than Integer.MAX_VALUE
+     * Will return false for any other non-null string input
+     * @throws NullPointerException if {@code s} is null.
+     */
+    public static boolean isOutsideIntegerLimits(String s) {
+        requireNonNull(s);
+
+        try {
+            BigInteger value = new BigInteger(s);
+            return value.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0 ||
+                    value.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0;
         } catch (NumberFormatException nfe) {
             return false;
         }

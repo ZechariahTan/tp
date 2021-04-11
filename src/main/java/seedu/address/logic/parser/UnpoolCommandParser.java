@@ -4,6 +4,7 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.UnpoolCommand;
+import seedu.address.logic.parser.exceptions.IndexOutOfIntegerBoundsException;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -16,7 +17,7 @@ public class UnpoolCommandParser implements Parser<UnpoolCommand> {
      * and returns a UnpoolCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
-    public UnpoolCommand parse(String args) throws ParseException {
+    public UnpoolCommand parse(String args) throws ParseException, IndexOutOfIntegerBoundsException {
         try {
             Index index = ParserUtil.parseIndex(args);
             return new UnpoolCommand(index);

@@ -13,6 +13,7 @@ import java.util.stream.Stream;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.PoolCommand;
+import seedu.address.logic.parser.exceptions.IndexOutOfIntegerBoundsException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.TripDay;
 import seedu.address.model.TripTime;
@@ -27,7 +28,7 @@ public class PoolCommandParser implements Parser<PoolCommand> {
      * and returns an PoolCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
-    public PoolCommand parse(String args) throws ParseException {
+    public PoolCommand parse(String args) throws ParseException, IndexOutOfIntegerBoundsException {
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE,
                 PREFIX_TRIPDAY, PREFIX_TRIPTIME, PREFIX_COMMUTER, PREFIX_TAG);
 
