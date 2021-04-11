@@ -4,28 +4,72 @@
 <?import javafx.scene.Scene?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.stage.Stage?>
+<?import seedu.address.ui.HelpTableEntry?>
+<?import javafx.collections.FXCollections?>
 
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <fx:root resizable="false" title="Help" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
   <icons>
     <Image url="@/images/help_icon.png" />
   </icons>
   <scene>
     <Scene>
-         <HBox alignment="CENTER">
+         <HBox alignment="CENTER" prefHeight="538.0" prefWidth="737.0">
             <children>
-               <Label fx:id="helpMessage" text="Label">
-                  <HBox.margin>
-                     <Insets right="5.0" />
-                  </HBox.margin>
-               </Label>
-               <Button fx:id="copyButton" mnemonicParsing="false" onAction="#copyUrl" text="Copy URL">
-                  <HBox.margin>
-                     <Insets left="5.0" />
-                  </HBox.margin>
-               </Button>
+               <SplitPane dividerPositions="0.9213051823416507" orientation="VERTICAL" prefHeight="350.0" prefWidth="722.0">
+                 <items>
+                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                        <children>
+                           <TableView prefHeight="476.0" prefWidth="725.0">
+                             <columns>
+                               <TableColumn prefWidth="114.0" text="Action">
+                                 <cellValueFactory><PropertyValueFactory property="action" />
+                                 </cellValueFactory>
+                               </TableColumn>
+                               <TableColumn prefWidth="605.0" text="Format" >
+                                 <cellValueFactory><PropertyValueFactory property="format" />
+                                 </cellValueFactory>
+                             </TableColumn>
+                             </columns>
+                               <items>
+                                   <FXCollections fx:factory="observableArrayList">
+                                       <HelpTableEntry action="add" format="add n/NAME p/PHONE a/ADDRESS d/TRIPDAY t/TRIPTIME [tag/TAG tag/TAG ...]" />
+                                       <HelpTableEntry action="edit" format="edit INDEX [n/NAME] [p/PHONE] [a/ADDRESS] [d/DAY] [t/TIME] [tag/TAG tag/TAG ...]" />
+                                       <HelpTableEntry action="delete" format="delete INDEX [INDEX INDEX...]" />
+                                       <HelpTableEntry action="pool" format="pool n/DRIVER_NAME p/DRIVER_PHONE d/TRIPDAY t/TRIPTIME c/INDEX [c/INDEX c/INDEX ...]" />
+                                       <HelpTableEntry action="unpool" format="unpool INDEX" />
+                                       <HelpTableEntry action="find" format="find PREFIX/KEYWORD [PREFIX/KEYWORD PREFIX/KEYWORD ...]" />
+                                       <HelpTableEntry action="findPool" format="findPool n/PASSENGER_NAME" />
+                                       <HelpTableEntry action="help" format="help" />
+                                       <HelpTableEntry action="clear" format="clear" />
+                                       <HelpTableEntry action="exit" format="exit" />
+                                   </FXCollections>
+                               </items>
+                           </TableView>
+                        </children>
+                     </AnchorPane>
+                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                        <children>
+                           <HBox alignment="TOP_CENTER" prefHeight="44.0" prefWidth="721.0">
+                              <children>
+                                 <Label fx:id="helpMessage" text="Label" />
+                                 <Button fx:id="copyButton" mnemonicParsing="false" onAction="#copyUrl" text="Copy URL" />
+                              </children>
+                              <opaqueInsets>
+                                 <Insets bottom="10.0" left="5.0" right="10.0" top="5.0" />
+                              </opaqueInsets>
+                           </HBox>
+                        </children>
+                     </AnchorPane>
+                 </items>
+               </SplitPane>
             </children>
             <opaqueInsets>
                <Insets bottom="10.0" left="5.0" right="10.0" top="5.0" />
