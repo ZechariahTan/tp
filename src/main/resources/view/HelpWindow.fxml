@@ -47,6 +47,8 @@
                                        <HelpTableEntry action="unpool" format="unpool INDEX" />
                                        <HelpTableEntry action="find" format="find PREFIX/KEYWORD [PREFIX/KEYWORD PREFIX/KEYWORD ...]" />
                                        <HelpTableEntry action="findPool" format="findPool n/PASSENGER_NAME" />
+                                       <HelpTableEntry action="listPool" format="listPool" />
+                                       <HelpTableEntry action="list" format="list" />
                                        <HelpTableEntry action="help" format="help" />
                                        <HelpTableEntry action="clear" format="clear" />
                                        <HelpTableEntry action="exit" format="exit" />
