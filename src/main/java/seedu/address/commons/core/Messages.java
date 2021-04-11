@@ -11,8 +11,8 @@ public class Messages {
             + " provided is invalid";
     public static final String MESSAGE_INVALID_SINGLE_PASSENGER_DISPLAYED_INDEX = "The passenger index provided is"
             + " invalid";
-    public static final String MESSAGE_INDEX_OUT_OF_INTEGER_BOUNDS = "Index provided is larger than 2147483647 or " +
-            "smaller than -2147483648";
+    public static final String MESSAGE_INDEX_OUT_OF_INTEGER_BOUNDS = "Index provided is larger than 2147483647 or "
+            + "smaller than -2147483648";
     public static final String MESSAGE_INVALID_POOL_DISPLAYED_INDEX = "The pool index provided is invalid";
     public static final String MESSAGE_PASSENGER_LISTED_OVERVIEW = "%1$d passengers listed!";
     public static final String MESSAGE_POOLS_LISTED_OVERVIEW = "%1$d pools listed!";

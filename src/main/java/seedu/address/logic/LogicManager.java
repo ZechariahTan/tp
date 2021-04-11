@@ -40,7 +40,8 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public CommandResult execute(String commandText) throws CommandException, ParseException, IndexOutOfIntegerBoundsException {
+    public CommandResult execute(String commandText) throws CommandException, ParseException,
+            IndexOutOfIntegerBoundsException {
         logger.info("----------------[USER COMMAND][" + commandText + "]");
 
         CommandResult commandResult;

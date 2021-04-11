@@ -2,9 +2,7 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INDEX_OUT_OF_INTEGER_BOUNDS;
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_SINGLE_PASSENGER_DISPLAYED_INDEX;
 
-import java.math.BigInteger;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -185,7 +183,8 @@ public class ParserUtil {
     /**
      * Parses {@code Collection<String> indices} into a {@code Set<Index>}.
      */
-    public static Set<Index> parseIndices(Collection<String> indices) throws ParseException, IndexOutOfIntegerBoundsException {
+    public static Set<Index> parseIndices(Collection<String> indices) throws ParseException,
+            IndexOutOfIntegerBoundsException {
         requireNonNull(indices);
         final Set<Index> indicesSet = new HashSet<>();
         for (String index : indices) {
@@ -199,7 +198,8 @@ public class ParserUtil {
      * Leading and trailing whitespaces will be trimmed.
      * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
      */
-    public static List<Index> parseDeleteIndex(String oneBasedIndexes) throws ParseException, IndexOutOfIntegerBoundsException {
+    public static List<Index> parseDeleteIndex(String oneBasedIndexes) throws ParseException,
+            IndexOutOfIntegerBoundsException {
         String[] arguments = oneBasedIndexes.split("\\s+");
         List<Index> indexes = new ArrayList<>();
 

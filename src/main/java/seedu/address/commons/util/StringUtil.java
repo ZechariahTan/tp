@@ -81,8 +81,8 @@ public class StringUtil {
 
         try {
             BigInteger value = new BigInteger(s);
-            return value.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0 ||
-                    value.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0;
+            return value.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0
+                    || value.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0;
         } catch (NumberFormatException nfe) {
             return false;
         }
